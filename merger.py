@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import csv
 import sys
 
@@ -40,7 +42,7 @@ with open(file2, "r", newline='') as csvfile:
             name = row[2]
 
             if id in file1data:
-                print(f"duplicates found {row} / {file1data[id]}")
+                print(f"match found {row} / {file1data[id]}")
                 row1 = [id, f"{callsign} ({file1data[id]['callsign']})", name, "" , "", file1data[id]["loc"]]
                 writer.writerow(row1)
                 file1data.pop(row[0])
