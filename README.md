@@ -40,10 +40,24 @@ tail -n +2 tmp.csv | sed 's/""""//g' > qra-hams.csv
 
 и запускает Python скрипт выше
 
-# Выхлоп получается вида
+# Результат
+
+Выхлоп получается вида
 
 ```
 2485248,UB3ZZZZ (Vasyan),Vasily,,,Russia Fed
 2485249,UB3YYYY (Petyan),Petyan,,,Russia Fed
 2485250,UB3XXXX (Kostyan),Kostyan,,,Russia Fed
+```
+
+# Дисклеймер
+
+Проверялось на [Retevis RT73](https://www.radioscanner.ru/forum/topic51444.html)
+
+Софт
+
+```
+Name: RT73 programming software
+
+Version: 9.1.195
 ```
