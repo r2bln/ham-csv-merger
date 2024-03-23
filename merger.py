@@ -30,26 +30,29 @@ print(f"reading second file: {file2}")
 with open(file2, "r", newline='') as csvfile:
     with open(fileOut, "w", newline='') as outfile:
         rdr = csv.reader(csvfile, delimiter=',')
-        writer = csv.writer(outfile, delimiter=';')
-        writer.writerow(['Contact Name', 'ID', 'ID Type' ,'TS Override'])
+        writer = csv.writer(outfile, delimiter=',')
+        writer.writerow(["RADIO_ID","CALLSIGN","FIRST_NAME","LAST_NAME","CITY","STATE","COUNTRY"])
         for row in rdr:
-            if len(prefix) > 0 and not row[5].startswith(prefix):
+            if len(prefix) > 0 and not row[0].startswith(prefix):
                 continue
 
             id = row[0]
             callsign = row[1]
-            name = row[2]
+            fname = row[2]
+            lname = row[3]
+            city = row[4]
+            state = row[5]
+            country = row[6]
 
             if id in file1data:
                 print(f"match found {row} / {file1data[id]}")
-                row1 = [f"{callsign}/{file1data[id]['callsign']}", id, 'Private', 2]
+                row1 = [id, f"{callsign}/{file1data[id]['callsign']}", fname, lname, city, state, country]
                 writer.writerow(row1)
                 file1data.pop(row[0])
             else:
-               row2 = [f"{row[1]}/{row[2]}", row[0], 'Private', 2]
-               writer.writerow(row2)
+               writer.writerow(row)
 
         print(f"{file1} members left unmatched: {len(file1data)} adding them as is")
         for _, el in file1data.items():
-            row1 = [el["callsign"], el['id'], 'Private', 2]
+            row1 = [el['id'], el["callsign"], '', '', '', '', 'Russia']
             writer.writerow(row1)
