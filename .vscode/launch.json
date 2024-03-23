@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["qra-hams.csv", "bm-hams.csv", "user.csv", "250"]
+            "args": ["qra-hams.csv", "bm-hams.csv", "user.csv", "250", "RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY"]
         }
     ]
 }

@@ -14,6 +14,10 @@ if len(sys.argv) > 4:
     print(f"dmrIdPrefix {dmrIdPrefix}")
 
 csvHeader = "RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY"
+if len(sys.argv) > 5:
+    csvHeader = sys.argv[5]
+    print(f"csvHeader: {csvHeader}")
+
 csvFormat = csvHeader.split(",")
 
 def printRow(writer, data):
