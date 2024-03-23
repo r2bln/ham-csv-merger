@@ -7,16 +7,15 @@ file1 = sys.argv[1]
 file2 = sys.argv[2]
 fileOut = sys.argv[3]
 
-dmrIdPrefix = ""
-
-if len(sys.argv) > 4:
-    dmrIdPrefix = sys.argv[4]
-    print(f"dmrIdPrefix {dmrIdPrefix}")
-
 csvHeader = "RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY"
-if len(sys.argv) > 5:
-    csvHeader = sys.argv[5]
+if len(sys.argv) > 4:
+    csvHeader = sys.argv[4]
     print(f"csvHeader: {csvHeader}")
+
+dmrIdPrefix = ""
+if len(sys.argv) > 5:
+    dmrIdPrefix = sys.argv[5]
+    print(f"dmrIdPrefix {dmrIdPrefix}")
 
 csvFormat = csvHeader.split(",")
 
