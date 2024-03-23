@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["qra-hams.csv", "bm-hams.csv", "user.csv"]
+            "args": ["qra-hams.csv", "bm-hams.csv", "user.csv", "250"]
         }
     ]
 }
