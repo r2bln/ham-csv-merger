@@ -50,7 +50,7 @@ with open(file2, "r", newline='') as csvfile:
                 writer.writerow(row1)
                 file1data.pop(row["RADIO_ID"])
             else:
-               writer.writerow(row)
+               writer.writerow(row.values())
 
         print(f"{file1} members left unmatched: {len(file1data)} adding them as is")
         for _, el in file1data.items():
