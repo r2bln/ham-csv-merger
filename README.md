@@ -9,21 +9,27 @@
 ## Непосредственно python script
 
 ```
-python3 merger.py qra-hams.csv bm-hams.csv out.csv
+python3 merger.py qra-hams.csv bm-hams.csv user.csv
+```
+
+можно передавать заголовок для csv
+
+```
+python3 merger.py qra-hams.csv bm-hams.csv user.csv CALLSIGN,RADIO_ID,FIRST_NAME,CITY,STATE,COUNTRY
 ```
 
 можно еще фильтровать записи по префиксу dmrId
 
 ```
-python3 merger.py qra-hams.csv bm-hams.csv out.csv 250
+python3 merger.py qra-hams.csv bm-hams.csv user.csv CALLSIGN,RADIO_ID,FIRST_NAME,CITY,STATE,COUNTRY 250
 ```
 
 тогда на выходе будут контакты BM из России (с префиксом 250) + QRA-TEAM
 
-## С помощью заготовленного скрипта
+## С помощью заготовленного [скрипта](run.sh)
 
 ```
-sh run.sh
+bash run.sh
 ```
 
 этот скрипт качает контакты отсюда
@@ -32,7 +38,21 @@ https://radioid.net/static/user.csv
 
 https://raw.githubusercontent.com/krot4u/Public_scripts/master/dmrid.dat
 
-и запускает Python скрипт выше
+и запускает Python скрипт выше на выхлопе получается файл подходящий для OpenGD77
+
+есть еще второй [скрипт](run-rt73.sh)
+
+```
+bash run-rt73.sh
+```
+
+делает тоже самое на подает на вход другой формат
+
+```
+python3 merger.py qra-hams.csv bm-hams.csv user.csv CALLSIGN,RADIO_ID,FIRST_NAME,CITY,STATE,COUNTRY 250
+```
+
+на выхлопе получается файл подходящий для [Retevis RT73](https://www.radioscanner.ru/forum/topic51444.html) он же [Kydera CDR-300UV](https://kydera.su/dmr-radiostancii/kydera-cdr-300uv-dmr-analog-radio)
 
 # Результат
 
